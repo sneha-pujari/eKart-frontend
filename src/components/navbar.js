@@ -5,8 +5,6 @@ import { useData } from "../data-context";
 import { useAxios } from "../useAxios";
 import { useProducts } from "../products-context";
 import { API_CART, API_PRODUCTS, API_WISHLIST } from "../be";
-import { SET_CART_ITEMS, SET_WISHLIST_ITEMS } from "../data-reducer";
-import { SET_PRODUCTS } from "../products-reducer";
 
 function NotificationBadge({ length }) {
   return (
@@ -36,15 +34,15 @@ export function NavigationBar({ setRoute }) {
     (async () => {
       if (cartItems.length === 0) {
         const fetchedCartItems = await getCartData();
-        dataDispatch({ type: SET_CART_ITEMS, fetchedCartItems });
+        // dataDispatch({ type: SET_CART_ITEMS, fetchedCartItems });
       }
       if (wishlist.length === 0) {
         const fetchedWishlist = await getWishlistData();
-        dataDispatch({ type: SET_WISHLIST_ITEMS, fetchedWishlist });
+        // dataDispatch({ type: SET_WISHLIST_ITEMS, fetchedWishlist });
       }
       if (products.length === 0) {
         const fetchedProducts = await getProductsData();
-        productsDispatch({ type: SET_PRODUCTS, products: fetchedProducts });
+      //  productsDispatch({ type: SET_PRODUCTS, products: fetchedProducts });
       }
     })();
   }, []);

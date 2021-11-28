@@ -2,7 +2,7 @@ import { createContext, useContext, useReducer } from "react";
 import {
   productsReducer,
   products,
-  FILTER_BY_STOCK,
+  INCLUDE_OUT_OF_STOCK,
   ONLY_FAST_DELIVERY
 } from "./products-reducer";
 
@@ -11,7 +11,7 @@ const ProductsContext = createContext({});
 export const ProductsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(productsReducer, {
     products,
-    [FILTER_BY_STOCK]: true,
+    [INCLUDE_OUT_OF_STOCK]: true,
     [ONLY_FAST_DELIVERY]: false
   });
   return (
